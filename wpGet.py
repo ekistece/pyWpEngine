@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os, sys, requests, re, zipfile
 
 
@@ -15,8 +16,9 @@ wpId = re.split('=|&', steamUrl)[1]
 
 # Get the wallpaper name from steam and store it as folder name
 r = requests.get(steamUrl)
-wpName = re.search(r'class="workshopItemTitle">(.*?)<',str(r.content)).group(1)
+wpName = str(re.search(r'class="workshopItemTitle">(.*?)<',r.content.decode()).group(1))
 wpPath = os.path.join(storagePath, wpName)
+print('Downloading ' + wpName + '...')
 
 # Check if wallpaper already exists
 if os.path.isdir(wpPath):
