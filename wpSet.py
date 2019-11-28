@@ -11,6 +11,3 @@ wp = os.path.join(os.getcwd(), 'Wallpapers', wps[sel], 'wp.mp4')
 
 with open('wp.conf','wb') as f:
     f.write(wp.encode('utf-8'))
-
-#subprocess.run(["bin\mpv","--wid",str(hwnd),"--no-audio","--loop-file",wp])
-#os.system('bin\mpv --wid ' + str(hwnd) + ' --no-audio --loop-file ' + wp)
